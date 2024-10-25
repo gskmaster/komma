@@ -121,7 +121,7 @@ export function Projects() {
           PROJECTS
         </h2>
         
-        <div className="w-full max-w-[60%] mx-auto">
+        <div className="w-full max-w-[80%] mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-1">
             {projectsData.slice(0, visibleProjects).map((project) => (
               <div 
