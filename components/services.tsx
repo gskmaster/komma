@@ -27,25 +27,25 @@ export function Services() {
               <TabsList className="flex flex-col h-auto bg-transparent w-full md:w-64">
                 <TabsTrigger 
                   value="activation"
-                  className="data-[state=active]:text-white data-[state=inactive]:text-white/60 text-left justify-start px-0 hover:text-white/80"
+                  className="data-[state=active]:text-white data-[state=active]:bg-transparent data-[state=inactive]:text-white/60 text-left justify-start px-0 hover:text-white/80"
                 >
                   ACTIVATION
                 </TabsTrigger>
                 <TabsTrigger 
                   value="pr"
-                  className="data-[state=active]:text-[#3B82F6] data-[state=inactive]:text-white/60 text-left justify-start px-0 hover:text-[#3B82F6]"
+                  className="data-[state=active]:text-white data-[state=active]:bg-transparent data-[state=inactive]:text-white/60 text-left justify-start px-0 hover:text-white/80"
                 >
                   PUBLIC RELATIONS
                 </TabsTrigger>
                 <TabsTrigger 
                   value="social"
-                  className="data-[state=active]:text-[#3B82F6] data-[state=inactive]:text-white/60 text-left justify-start px-0 hover:text-[#3B82F6]"
+                  className="data-[state=active]:text-white data-[state=active]:bg-transparent data-[state=inactive]:text-white/60 text-left justify-start px-0 hover:text-white/80"
                 >
                   SOCIAL MEDIA
                 </TabsTrigger>
                 <TabsTrigger 
                   value="digital"
-                  className="data-[state=active]:text-[#3B82F6] data-[state=inactive]:text-white/60 text-left justify-start px-0 hover:text-[#3B82F6]"
+                  className="data-[state=active]:text-white data-[state=active]:bg-transparent data-[state=inactive]:text-white/60 text-left justify-start px-0 hover:text-white/80"
                 >
                   DIGITAL CONTENT
                 </TabsTrigger>

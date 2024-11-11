@@ -1,48 +1,48 @@
 export function Clients() {
   const clients = [
     // Row 1
-    { name: "YSL", logo: "/logos/ysl.svg" },
-    { name: "LOEWE", logo: "/logos/loewe.svg" },
-    { name: "LE LABO", logo: "/logos/lelabo.svg" },
-    { name: "SANDRO", logo: "/logos/sandro.svg" },
-    { name: "JO MALONE", logo: "/logos/jomalone.svg" },
-    { name: "TUMI", logo: "/logos/tumi.svg" },
-    { name: "BOSS", logo: "/logos/boss.svg" },
-    { name: "HENDRICK'S", logo: "/logos/hendricks.svg" },
+    { name: "YSL", logo: "/logos/1 - YSL.png" },
+    { name: "LOEWE", logo: "/logos/2 - LOEWE.png" },
+    { name: "LE LABO", logo: "/logos/3 - LE LABO.png" },
+    { name: "SANDRO", logo: "/logos/4 - SANDRO.png" },
+    { name: "JO MALONE", logo: "/logos/5 - JO MALONE.png" },
+    { name: "TUMI", logo: "/logos/6 - TUMI.png" },
+    { name: "BOSS", logo: "/logos/7 - BOSS.png" },
+    { name: "HENDRICK'S", logo: "/logos/8 - HENDRICK'S.png" },
     // Row 2
-    { name: "Spotify", logo: "/logos/spotify.svg" },
-    { name: "LACOSTE", logo: "/logos/lacoste.svg" },
-    { name: "ELLE", logo: "/logos/elle.svg" },
-    { name: "MaxMara", logo: "/logos/maxmara.svg" },
-    { name: "GANT", logo: "/logos/gant.svg" },
-    { name: "SWATCH", logo: "/logos/swatch.svg" },
-    { name: "LANEIGE", logo: "/logos/laneige.svg" },
-    { name: "H&M", logo: "/logos/hm.svg" },
+    { name: "Spotify", logo: "/logos/9 - Spotify.png" },
+    { name: "LACOSTE", logo: "/logos/10 - LACOSTE.png" },
+    { name: "ELLE", logo: "/logos/11 - ELLE.png" },
+    { name: "MaxMara", logo: "/logos/12 - Maxmara.png" },
+    { name: "GANT", logo: "/logos/13 - GANT.png" },
+    { name: "SWATCH", logo: "/logos/14 - SWATCH.png" },
+    { name: "LANEIGE", logo: "/logos/15 - LANEIGE.png" },
+    { name: "H&M", logo: "/logos/16 - H&M.png" },
     // Row 3
-    { name: "COTTON ON", logo: "/logos/cotton-on.svg" },
-    { name: "SADA", logo: "/logos/sada.svg" },
-    { name: "ALEZA", logo: "/logos/aleza.svg" },
-    { name: "KAMI", logo: "/logos/kami.svg" },
-    { name: "HARRYLALIM", logo: "/logos/harrylalim.svg" },
-    { name: "MORAL", logo: "/logos/moral.svg" },
-    { name: "BEF", logo: "/logos/bef.svg" },
-    { name: "INDONESIA", logo: "/logos/indonesia.svg" },
+    { name: "COTTON ON", logo: "/logos/17 - COTTON ON.png" },
+    { name: "SADA", logo: "/logos/18 - SADA.png" },
+    { name: "ALEZA", logo: "/logos/19 - ALEZA.png" },
+    { name: "KAMI", logo: "/logos/20 - KAMI.png" },
+    { name: "HARRYLALIM", logo: "/logos/21 - HARRYHALIM.png" },
+    { name: "MORAL", logo: "/logos/22 - MORAL.png" },
+    { name: "TDW", logo: "/logos/23 - TDW.png" },
+    { name: "PLAZAINDONESIA", logo: "/logos/24 - PLAZA INDO.png" },
     // Row 4
-    { name: "RANCH MARKET", logo: "/logos/ranch-market.svg" },
-    { name: "FARMERS MARKET", logo: "/logos/farmers-market.svg" },
-    { name: "SANITARIUM", logo: "/logos/sanitarium.svg" },
-    { name: "BANK INDONESIA", logo: "/logos/bank-indonesia.svg" },
-    { name: "INDIVIDUAL", logo: "/logos/individual.svg" },
-    { name: "PAVILION", logo: "/logos/pavilion.svg" },
-    { name: "ISSEI", logo: "/logos/issei.svg" },
-    { name: "SENAYAN CITY", logo: "/logos/senayan-city.svg" },
+    { name: "RANCH MARKET", logo: "/logos/25 - RANCH MARKET.png" },
+    { name: "FARMERS MARKET", logo: "/logos/26 - FARMERS MARKET.png" },
+    { name: "SANITARIUM", logo: "/logos/27 - SANITARIUM.png" },
+    { name: "BANK INDONESIA", logo: "/logos/28 - BI.png" },
+    { name: "INDOVISUAL", logo: "/logos/29 - INDOVISUAL.png" },
+    { name: "HAVILLA", logo: "/logos/30 - HAVILLA.png" },
+    { name: "ISSEI", logo: "/logos/31 - ISSEI.png" },
+    { name: "SENAYAN CITY", logo: "/logos/32 - SENAYAN CITY.png" },
     // Row 5
-    { name: "REUNO", logo: "/logos/reuno.svg" },
-    { name: "BRAINFIT", logo: "/logos/brainfit.svg" },
-    { name: "UNIPREP", logo: "/logos/uniprep.svg" },
-    { name: "KOHICHA", logo: "/logos/kohicha.svg" },
-    { name: "FUKUMARU", logo: "/logos/fukumaru.svg" },
-    { name: "KOPI KILA", logo: "/logos/kopi-kila.svg" }
+    { name: "REUNO", logo: "/logos/33 - REUNO.png" },
+    { name: "BRAINFIT", logo: "/logos/34 - BRAINFIT.png" },
+    { name: "UNIPREP", logo: "/logos/35 - UNIPREP.png" },
+    { name: "KOHICHA", logo: "/logos/36 - KOHICHA.png" },
+    { name: "FUKUMARU", logo: "/logos/37 - FUKUMARU.png" },
+    { name: "KOPI KILA", logo: "/logos/38 - KOPI KILA.png" }
   ];
 
   return (
@@ -51,22 +51,22 @@ export function Clients() {
         <h2 className="text-4xl md:text-5xl font-light mb-8 text-center tracking-wider">
           CLIENTS
         </h2>
-        
+
         <p className="text-center text-white/80 mb-16 max-w-3xl mx-auto">
           We Partner With Businesses Of All Sizes, From Local Startups To Global Brands Seeking Growth.
         </p>
 
-        <div className="grid grid-cols-4 md:grid-cols-8 gap-8 md:gap-12 max-w-[1400px] mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-8 gap-8 max-w-[1400px] mx-auto">
           {clients.map((client, index) => (
-            <div 
+            <div
               key={index}
-              className="flex items-center justify-center p-4 transition-opacity hover:opacity-80"
+              className="flex items-center justify-center p-2 transition-opacity hover:opacity-80"
             >
               <div className="relative w-full h-8">
-                <div className="absolute inset-0 flex items-center justify-center">
+                <div className="absolute inset-0 w-full h-full flex items-center justify-center">
                   {/* Fallback to text if logo is not available */}
                   <span className="text-white/60 text-sm whitespace-nowrap">
-                    {client.name}
+                    <img src={client.logo} alt={client.name} className="w-full h-full" />
                   </span>
                 </div>
               </div>
