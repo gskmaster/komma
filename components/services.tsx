@@ -4,24 +4,24 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export function Services() {
   return (
-    <section id="services" className="bg-[#0A0B1A] text-white py-24">
-      <div className="container mx-auto px-4">
+    <section id="services" className="bg-gradient-to-b from-[#141B33] to-[#0A0B1A] text-white">
+      <div className="container">
         <div className="flex flex-col md:flex-row gap-12">
-          {/* Left Column with Image and Title */}
-          <div className="w-full md:w-1/2">
-            <div className="aspect-square relative overflow-hidden bg-gray-900">
+          {/* Left Column with Image */}
+          <div className="w-full md:w-2/3">
+            <div className="relative overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2940&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=3940&auto=format&fit=crop"
                 alt="Services"
-                className="object-cover w-full h-full brightness-75 grayscale"
+                className="object-cover w-full h-full brightness-75 grayscale md:block hidden" // Hide on mobile
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A0B1A] to-transparent opacity-50" />
             </div>
           </div>
 
           {/* Right Column with Tabs */}
-          <div className="w-full md:w-1/2">
-            <h2 className="text-4xl md:text-5xl font-light mb-20 tracking-wider text-center">SERVICES</h2>
+          <div className="w-full md:w-1/3 py-24">
+            <h2 className="text-3xl md:text-5xl font-light mb-20 tracking-wider text-center">SERVICES</h2>
             <Tabs defaultValue="activation" className="flex flex-col md:flex-row gap-8">
               {/* Tab triggers */}
               <TabsList className="flex flex-col h-auto bg-transparent w-full md:w-64">
@@ -52,7 +52,7 @@ export function Services() {
               </TabsList>
 
               {/* Tab content */}
-              <div className="flex-1">
+              <div className="flex-1 w-full">
                 <TabsContent value="activation" className="mt-0">
                   <div className="space-y-8">
                     <p className="text-white/90 leading-relaxed text-lg">
