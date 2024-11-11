@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ChevronDown, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { useRouter } from 'next/compat/router';
+import { useRouter } from 'next/navigation';
 
 interface Project {
   id: number;
@@ -155,13 +155,19 @@ export function Projects() {
                 {/* Overlay */}
                 <div
                   className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer"
-                  onClick={() => router.push(project.url)} // Navigate to the project detail page
                 />
 
                 {/* Content */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center p-4 bg-gradient-to-t from-black/80 to-transparent">
-                  <h3 className="text-xl font-light tracking-wider text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">{project.title}</h3>
-                  <p className="text-sm text-white/80 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">{project.subtitle}</p>
+                  <h3
+                    className="text-xl font-light tracking-wider text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer"
+                    onClick={() => router.push(`/projects/${project.id}`)} // Navigate to the project detail page
+                  >
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-white/80 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {project.subtitle}
+                  </p>
                 </div>
               </div>
             ))}
