@@ -8,7 +8,7 @@ export function Services() {
       <div className="container">
         <div className="flex flex-col md:flex-row gap-12">
           {/* Left Column with Image */}
-          <div className="w-full md:w-2/3">
+          <div className="w-full md:w-1/2">
             <div className="relative overflow-hidden">
               <img
                 src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=3940&auto=format&fit=crop"
@@ -20,32 +20,32 @@ export function Services() {
           </div>
 
           {/* Right Column with Tabs */}
-          <div className="w-full md:w-1/3 py-24">
+          <div className="w-full md:w-1/2 py-24">
             <h2 className="text-3xl md:text-5xl font-light mb-20 tracking-wider text-center">SERVICES</h2>
             <Tabs defaultValue="activation" className="flex flex-col md:flex-row gap-8">
               {/* Tab triggers */}
               <TabsList className="flex flex-col h-auto bg-transparent w-full md:w-64">
                 <TabsTrigger 
                   value="activation"
-                  className="data-[state=active]:text-white data-[state=active]:bg-transparent data-[state=inactive]:text-white/60 text-left justify-start px-0 hover:text-white/80 text-2xl"
+                  className="data-[state=active]:text-white data-[state=active]:bg-transparent data-[state=inactive]:text-white/60 justify-start px-0 hover:text-white/80 text-xl"
                 >
                   ACTIVATION
                 </TabsTrigger>
                 <TabsTrigger 
                   value="pr"
-                  className="data-[state=active]:text-white data-[state=active]:bg-transparent data-[state=inactive]:text-white/60 text-left justify-start px-0 hover:text-white/80 text-2xl"
+                  className="data-[state=active]:text-white data-[state=active]:bg-transparent data-[state=inactive]:text-white/60 justify-start px-0 hover:text-white/80 text-xl"
                 >
                   PUBLIC RELATIONS
                 </TabsTrigger>
                 <TabsTrigger 
                   value="social"
-                  className="data-[state=active]:text-white data-[state=active]:bg-transparent data-[state=inactive]:text-white/60 text-left justify-start px-0 hover:text-white/80 text-2xl"
+                  className="data-[state=active]:text-white data-[state=active]:bg-transparent data-[state=inactive]:text-white/60 justify-start px-0 hover:text-white/80 text-xl"
                 >
                   SOCIAL MEDIA
                 </TabsTrigger>
                 <TabsTrigger 
                   value="digital"
-                  className="data-[state=active]:text-white data-[state=active]:bg-transparent data-[state=inactive]:text-white/60 text-left justify-start px-0 hover:text-white/80 text-2xl"
+                  className="data-[state=active]:text-white data-[state=active]:bg-transparent data-[state=inactive]:text-white/60 justify-start px-0 hover:text-white/80 text-xl"
                 >
                   DIGITAL CONTENT
                 </TabsTrigger>

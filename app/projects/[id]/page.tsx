@@ -1,27 +1,16 @@
-import { useRouter } from "next/navigation";
+// kommaproject/komma/app/projects/[id]/page.tsx
+import ProjectDetail from './pagedetail'; // Import the Client Component
 
-interface ProjectDetailProps {
-  params: {
-    id: string;
-  };
-}
 
 export async function generateStaticParams() {
-  // Specify all possible project IDs that should be statically generated
   const projectIds = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
-  
   return projectIds.map((id) => ({ id }));
 }
 
-const ProjectDetail = ({ params }: ProjectDetailProps) => {
-  const { id } = params; // Access the project ID from params
-
+const Page = ({ params }) => {
   return (
-    <div>
-      <h1>Project Detail for Project ID: {id}</h1>
-      {/* Add more details about the project here */}
-    </div>
-  );
+        <ProjectDetail params={params} />
+    );
 };
 
-export default ProjectDetail;
+export default Page;

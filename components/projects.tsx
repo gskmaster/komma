@@ -165,7 +165,7 @@ export function Projects() {
                   >
                     {project.title}
                   </h3>
-                  <p className="text-sm text-white/80 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="text-sm text-white/80 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer" onClick={() => router.push(`/projects/${project.id}`)}>
                     {project.subtitle}
                   </p>
                 </div>

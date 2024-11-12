@@ -5,7 +5,16 @@ import { Button } from "@/components/ui/button";
 import { Instagram } from "lucide-react";
 
 export function Footer() {
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+  });
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
+  const [errors, setErrors] = useState({ name: '', phone: '', email: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [hasSubmitError, setHasSubmitError] = useState(false);
 
   const services = [
     "Activation",
@@ -16,17 +25,80 @@ export function Footer() {
   ];
 
   const toggleService = (service: string) => {
-    setSelectedServices(prev => 
-      prev.includes(service) 
+    setSelectedServices(prev =>
+      prev.includes(service)
         ? prev.filter(s => s !== service)
         : [...prev, service]
     );
   };
 
+  const validateField = (name: string, value: string) => {
+    let error = '';
+    if (name === 'name' && value.trim() === '') {
+      error = 'Name is required';
+    }
+    if (name === 'phone' && !/^\d+$/.test(value)) {
+      error = 'Phone must be numeric';
+    }
+    if (name === 'email' && !/\S+@\S+\.\S+/.test(value)) {
+      error = 'Email is invalid';
+    }
+    setErrors(prevErrors => ({ ...prevErrors, [name]: error }));
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    validateField(name, value);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setHasSubmitError(false);
+
+    // Validate all fields before submitting
+    validateField('name', formData.name);
+    validateField('phone', formData.phone);
+    validateField('email', formData.email);
+
+    // Check if there are any errors
+    if (errors.name || errors.phone || errors.email) {
+      setIsSubmitting(false);
+      setHasSubmitError(true);
+      return;
+    }
+
+    // Perform AJAX submission
+    // (Existing submission code here)
+    try {
+      const response = await fetch('/api/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ ...formData, services: selectedServices }),
+      });
+
+      if (response.ok) {
+        setSubmitSuccess(true);
+        // Reset form
+        setFormData({ name: '', phone: '', email: '' });
+        setSelectedServices([]);
+      } else {
+        console.error('Submission failed');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <footer className="relative min-h-screen bg-black text-white">
       {/* Background Image with Overlay */}
-      <div 
+      <div
         className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2940&auto=format&fit=crop')] 
         bg-cover bg-center"
       >
@@ -42,31 +114,43 @@ export function Footer() {
           <p className="text-xl text-gray-400">SHOOT US A MESSAGE</p>
         </div>
 
-        <form className="max-w-3xl mx-auto">
+        <form className="max-w-3xl mx-auto" onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Input Fields */}
             <div className="border-b border-white/30 pb-2">
               <input
                 type="text"
+                name="name"
                 placeholder="Full Name"
-                className="w-full bg-transparent focus:outline-none text-white placeholder:text-white/60"
+                value={formData.name}
+                onChange={handleChange}
+                className={`w-full bg-transparent focus:outline-none text-white placeholder:text-white/60 ${errors.name ? 'border-red-500' : ''}`}
               />
+              {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
             </div>
-            
+
             <div className="border-b border-white/30 pb-2">
               <input
                 type="tel"
+                name="phone"
                 placeholder="Phone"
-                className="w-full bg-transparent focus:outline-none text-white placeholder:text-white/60"
+                value={formData.phone}
+                onChange={handleChange}
+                className={`w-full bg-transparent focus:outline-none text-white placeholder:text-white/60 ${errors.phone ? 'border-red-500' : ''}`}
               />
+              {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
             </div>
-            
+
             <div className="border-b border-white/30 pb-2">
               <input
                 type="email"
+                name="email"
                 placeholder="Email"
-                className="w-full bg-transparent focus:outline-none text-white placeholder:text-white/60"
+                value={formData.email}
+                onChange={handleChange}
+                className={`w-full bg-transparent focus:outline-none text-white placeholder:text-white/60 ${errors.email ? 'border-red-500' : ''}`}
               />
+              {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
             </div>
           </div>
 
@@ -81,11 +165,10 @@ export function Footer() {
                   key={service}
                   className="flex items-center gap-2 cursor-pointer group"
                 >
-                  <div className={`w-5 h-5 rounded-full border ${
-                    selectedServices.includes(service)
+                  <div className={`w-5 h-5 rounded-full border ${selectedServices.includes(service)
                       ? 'border-white bg-white'
                       : 'border-white/30'
-                  } flex items-center justify-center transition-colors`}>
+                    } flex items-center justify-center transition-colors`}>
                     {selectedServices.includes(service) && (
                       <div className="w-2 h-2 rounded-full bg-black" />
                     )}
@@ -106,11 +189,12 @@ export function Footer() {
 
           {/* Submit Button */}
           <div className="flex justify-end mt-12">
-            <Button 
+            <Button
               type="submit"
-              className="bg-white text-black rounded-full px-8 hover:bg-white/90 transition-colors"
+              className={`rounded-full px-8 hover:bg-white/90 transition-colors ${submitSuccess ? 'animate-bounce' : ''} ${hasSubmitError ? 'bg-red-500 text-white' : 'bg-white text-black'}`}
+              disabled={isSubmitting}
             >
-              Submit
+              {isSubmitting ? 'Submitting...' : 'Submit'}
             </Button>
           </div>
         </form>
@@ -123,16 +207,16 @@ export function Footer() {
             <p className="mb-2">Jl. HR Rasuna Said Kav H1-2, M2 Floor</p>
             <p>Setabudi, Jakarta Selatan 12920</p>
           </div>
-          
+
           <div>
             <p className="mb-2">E: PR@KOMMAPROJECT.ID</p>
             <p>P: +62 812 820 120</p>
           </div>
 
           <div className="flex justify-start md:justify-end items-start">
-            <a 
-              href="https://instagram.com/KOMMAPROJECTID" 
-              target="_blank" 
+            <a
+              href="https://instagram.com/KOMMAPROJECTID"
+              target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 hover:text-white transition-colors"
             >
