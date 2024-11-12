@@ -130,9 +130,9 @@ export function Projects() {
   };
 
   return (
-    <section id="projects" className="bg-[#0A0B1A] text-white py-24">
+    <section id="projects" className="relative bg-gradient-to-b from-[#0A0B1A] to-[#141B33] text-white min-h-screen h-screen py-24">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-light mb-16 text-center tracking-wider">
+        <h2 className="text-4xl md:text-5xl font-light mt-16 mb-16 text-center tracking-wider">
           PROJECTS
         </h2>
 

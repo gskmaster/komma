@@ -80,3 +80,34 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes roll {
+  0% {
+    transform: translateY(0);
+    opacity: 0; /* Start invisible */
+  }
+  10% {
+    opacity: 1; /* Fade in */
+  }
+  25% {
+    transform: translateY(-30px); /* Move up */
+  }
+  50% {
+    transform: translateY(0);
+    opacity: 0; /* Back to original position */
+  }
+  75% {
+    opacity: 0;
+    transform: translateY(30px); /* Move down */
+  }
+
+  
+  100% {
+    transform: translateY(0); /* Back to original position */
+    opacity: 1; /* Fade out */
+  }
+}
+
+.animate-roll {
+  animation: roll 1s ease-in-out; /* Apply the roll animation */
+}

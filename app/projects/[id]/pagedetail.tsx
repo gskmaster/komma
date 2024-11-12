@@ -2,6 +2,8 @@
 
 import { useRouter } from "next/navigation";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
+import { Header } from "@/components/headerproject";
+
 
 
 interface ProjectDetailProps {
@@ -43,6 +45,7 @@ const ProjectDetail = ({ params }: ProjectDetailProps) => {
   return (
     <div className="bg-[#0A0B1A] text-white min-h-screen">
       {/* Use the existing Header component */}
+      <Header /> 
 
       {/* Main Content */}
       <div className="container mx-auto px-4 pt-32 pb-16">

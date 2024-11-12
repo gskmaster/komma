@@ -1,7 +1,7 @@
 export function About() {
   return (
-    <section id="about" className="relative bg-gradient-to-b from-[#0A0B1A] to-[#141B33] text-white py-24">
-      <div className="container mx-auto px-4">
+    <section id="about" className="relative bg-gradient-to-b from-[#0A0B1A] to-[#141B33] text-white min-h-screen h-screen py-24">
+      <div className="container mx-auto px-4 h-full flex items-center">
         <div className="relative">
           {/* Speech bubble decoration */}
           <div className="absolute right-0 top-0 w-32 h-32">

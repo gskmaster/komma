@@ -29,7 +29,7 @@ export function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 py-6 ${isScrolled ? 'bg-black/80' : 'bg-transparent'}`}
     >
-      <div className="container mx-auto">
+      <div className="container mx-auto max-w-6xl">
         <div className="flex items-center justify-between bg-black/50 rounded-full px-8 py-4 backdrop-blur-sm outline outline-white outline-1">
           {/* Logo */}
           <button

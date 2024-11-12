@@ -46,9 +46,9 @@ export function Clients() {
   ];
 
   return (
-    <section id="clients" className="bg-[#0A0B1A] text-white py-24">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-light mb-8 text-center tracking-wider">
+    <section id="clients" className="relative bg-gradient-to-b from-[#141B33] to-[#0A0B1A] text-white min-h-screen h-screen py-24">
+      <div className="container mx-auto px-4 max-w-[1920px]">
+        <h2 className="text-4xl md:text-5xl font-light mt-16 mb-8 text-center tracking-wider">
           CLIENTS
         </h2>
 

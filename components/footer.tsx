@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Instagram } from "lucide-react";
+import { WordShuffle } from "@/components/ui/wordshuffle"; // Import the WordShuffle component
 
 export function Footer() {
   const [formData, setFormData] = useState({
@@ -70,7 +71,6 @@ export function Footer() {
     }
 
     // Perform AJAX submission
-    // (Existing submission code here)
     try {
       const response = await fetch('/api/submit', {
         method: 'POST',
@@ -96,8 +96,9 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative min-h-screen bg-black text-white">
+    <footer id="contact" className="relative min-h-screen bg-black text-white">
       {/* Background Image with Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0A0B1A]" />
       <div
         className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2940&auto=format&fit=crop')] 
         bg-cover bg-center"
@@ -106,10 +107,10 @@ export function Footer() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 py-24">
+      <div className="relative z-10 container mx-auto px-4 py-[10rem]">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h2 className="text-5xl md:text-7xl font-light mb-4">
-            LET'S HAVE A <span className="text-gray-400">DISCUSSION</span>
+            LET'S HAVE A <p className="text-red-400"> <WordShuffle /> </p>{/* Use the WordShuffle component here */}
           </h2>
           <p className="text-xl text-gray-400">SHOOT US A MESSAGE</p>
         </div>
@@ -166,8 +167,8 @@ export function Footer() {
                   className="flex items-center gap-2 cursor-pointer group"
                 >
                   <div className={`w-5 h-5 rounded-full border ${selectedServices.includes(service)
-                      ? 'border-white bg-white'
-                      : 'border-white/30'
+                    ? 'border-white bg-white'
+                    : 'border-white/30'
                     } flex items-center justify-center transition-colors`}>
                     {selectedServices.includes(service) && (
                       <div className="w-2 h-2 rounded-full bg-black" />
