@@ -2,6 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Define Lexend font variations */
+@font-face {
+  font-family: 'Lexend';
+  src: url('/fonts/Lexend-Black.ttf') format('truetype');
+  font-weight: 900; /* Black */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lexend';
+  src: url('/fonts/Lexend-Regular.ttf') format('truetype');
+  font-weight: 400; /* Regular */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lexend';
+  src: url('/fonts/Lexend-Thin.ttf') format('truetype');
+  font-weight: 200; /* Thin */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lexend';
+  src: url('/fonts/Lexend-Italic.ttf') format('truetype');
+  font-weight: 400; /* Regular */
+  font-style: italic;
+}
+
+/* Define Neue Haas Unica font variations */
+@font-face {
+  font-family: 'Neue Haas Unica';
+  src: url('/fonts/NeueHaasUnica-Black.ttf') format('truetype');
+  font-weight: 900; /* Black */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neue Haas Unica';
+  src: url('/fonts/NeueHaasUnica-Regular.ttf') format('truetype');
+  font-weight: 400; /* Regular */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neue Haas Unica Thin';
+  src: url('/fonts/NeueHaasUnica-Thin.ttf') format('truetype');
+}
+
+body {
+  font-family:'Lexend'!important; /* Fallback to sans-serif */
+}
+
+.hero-content {
+  font-family: 'Neue Haas Unica Thin';/* Fallback to sans-serif */
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -84,30 +141,47 @@
 @keyframes roll {
   0% {
     transform: translateY(0);
-    opacity: 0; /* Start invisible */
+    opacity: 1;
   }
-  10% {
-    opacity: 1; /* Fade in */
-  }
-  25% {
-    transform: translateY(-30px); /* Move up */
+  30% {
+    transform: translateY(-100%);
+    opacity: 0;
   }
   50% {
-    transform: translateY(0);
-    opacity: 0; /* Back to original position */
-  }
-  75% {
+    transform: translateY(100%);
     opacity: 0;
-    transform: translateY(30px); /* Move down */
+  }
+  70% {
+    transform: translateY(50%);
+    opacity: 1;
+  }
+  90% {
+    transform: translateY(20%);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+@keyframes rollIn {
+  0% {
+    transform: translateY(-100);
+    opacity: 0;
   }
 
-  
   100% {
-    transform: translateY(0); /* Back to original position */
-    opacity: 1; /* Fade out */
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
 .animate-roll {
-  animation: roll 1s ease-in-out; /* Apply the roll animation */
+  display: inline-block;
+  animation: roll 2s ease-in-out;
+}
+
+.rollIn {
+  animation: fadeIn 2s ease-in-out; /* Apply the fadeIn animation */
 }

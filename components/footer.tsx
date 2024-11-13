@@ -98,7 +98,8 @@ export function Footer() {
   return (
     <footer id="contact" className="relative min-h-screen bg-black text-white">
       {/* Background Image with Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0A0B1A]" />
+      <div className="absolute inset-0  bg-gradient-to-b from-[#0A0B1A] via-transparent to-transparent" />
+      
       <div
         className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2940&auto=format&fit=crop')] 
         bg-cover bg-center"
