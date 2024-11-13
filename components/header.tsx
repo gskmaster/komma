@@ -68,7 +68,7 @@ export function Header() {
                 <button onClick={() => scrollToSection('services')} className="text-white hover:text-white/80 transition-colors text-sm tracking-wider">SERVICES</button>
                 <button onClick={() => scrollToSection('clients')} className="text-white hover:text-white/80 transition-colors text-sm tracking-wider">CLIENTS</button>
                 <button onClick={() => scrollToSection('projects')} className="text-white hover:text-white/80 transition-colors text-sm tracking-wider">PROJECTS</button>
-                <button onClick={() => scrollToSection('insights')} className="text-white hover:text-white/80 transition-colors text-sm tracking-wider">INSIGHTS</button>
+                {/* <button onClick={() => scrollToSection('insights')} className="text-white hover:text-white/80 transition-colors text-sm tracking-wider">INSIGHTS</button> */}
                 
                 {/* Contact Button in Mobile Menu */}
                 <Button
