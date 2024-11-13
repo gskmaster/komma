@@ -6,7 +6,11 @@ export async function generateStaticParams() {
   return projectIds.map((id) => ({ id }));
 }
 
-const Page = ({ params }) => {
+type Params = {
+  id: string;
+};
+
+const Page = ({ params }: { params: Params }) => {
   return (
         <ProjectDetail params={params} />
     );

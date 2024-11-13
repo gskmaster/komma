@@ -35,7 +35,7 @@ export async function generateStaticParams() {
 
 const ProjectDetail = ({ params }: ProjectDetailProps) => {
   const { id } = params; // Access the project ID from params
-  const project = projectData[id]; // Get the project data based on the ID
+  const project = projectData[1]; // Get the project data based on the ID
   const router = useRouter(); // Initialize the router
 
   if (!project) {

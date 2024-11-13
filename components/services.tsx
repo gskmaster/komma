@@ -26,7 +26,7 @@ export function Services() {
           {/* Left Column with Image */}
           <div className="hidden md:block w-1/2 h-screen overflow-hidden">
             <img
-              src={images[selectedTab]} // Use the selected tab to determine the image
+              src={images[selectedTab as keyof typeof images]} // Use the selected tab to determine the image
               alt="Service"
               className="w-full h-full object-cover"
             />
