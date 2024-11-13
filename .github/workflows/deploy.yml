@@ -1,0 +1,47 @@
+name: Deploy to DigitalOcean
+
+on:
+  push:
+    branches:
+      - main  # Adjust if your deployment branch is not "main"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup SSH
+        env:
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          DO_SERVER_IP: ${{ secrets.DO_SERVER_IP }}
+          DO_USER: ${{ secrets.DO_USER }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H "$DO_SERVER_IP" >> ~/.ssh/known_hosts
+
+      - name: Deploy to DigitalOcean
+        env:
+          DO_SERVER_IP: ${{ secrets.DO_SERVER_IP }}
+          DO_USER: ${{ secrets.DO_USER }}
+        run: |
+          ssh -i ~/.ssh/id_rsa $DO_USER@$DO_SERVER_IP << 'EOF'
+            # Navigate to your project directory
+            cd /root/komma
+
+            # Pull the latest changes
+            git pull origin main
+
+            # Install dependencies (if applicable)
+            npm install
+
+            # Build the project (if applicable)
+            npm run build
+
+            # Restart your application (for example, using PM2)
+            pm2 restart next-app || pm2 start npm --name "next-app" -- start
+          EOF
