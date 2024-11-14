@@ -48,7 +48,7 @@ export function Header() {
               <a href="/#services" className="text-white hover:text-white/80 transition-colors text-sm tracking-wider">SERVICES</a>
               <a href="/#clients" className="text-white hover:text-white/80 transition-colors text-sm tracking-wider">CLIENTS</a>
               <a href="/#projects" className="text-white hover:text-white/80 transition-colors text-sm tracking-wider">PROJECTS</a>
-              <a href="/#insights" className="text-white hover:text-white/80 transition-colors text-sm tracking-wider">INSIGHTS</a>
+              {/* <a href="/#insights" className="text-white hover:text-white/80 transition-colors text-sm tracking-wider">INSIGHTS</a> */}
             </div>
           </nav>
 
@@ -61,7 +61,7 @@ export function Header() {
                 <a href="/#services" className="text-white hover:text-white/80 transition-colors text-sm tracking-wider">SERVICES</a>
                 <a href="/#clients" className="text-white hover:text-white/80 transition-colors text-sm tracking-wider">CLIENTS</a>
                 <a href="/#projects" className="text-white hover:text-white/80 transition-colors text-sm tracking-wider">PROJECTS</a>
-                <a href="/#insights" className="text-white hover:text-white/80 transition-colors text-sm tracking-wider">INSIGHTS</a>
+                {/* <a href="/#insights" className="text-white hover:text-white/80 transition-colors text-sm tracking-wider">INSIGHTS</a> */}
                 
                 {/* Contact Button in Mobile Menu */}
                 <a href="/#contact">
