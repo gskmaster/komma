@@ -16,7 +16,7 @@ export function Hero() {
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-center text-white px-4">
         <h1 className="hero-content font-thin text-5xl md:text-7xl font-light mb-6 tracking-wider">
-          CONNECTING DOTS<br />
+          CONNECTING DOT<br />
           ONLINE & OFFLINE
         </h1>
         <p className="text-lg md:text-xl text-white/90 max-w-2xl text-bold">
