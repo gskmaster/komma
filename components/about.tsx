@@ -36,7 +36,7 @@ export function About() {
               </p>
               
               <div className="space-y-1">
-                <p className="font-medium">THEORIES FADE,</p>
+                <p className="font-medium">THEORIES FADEs,</p>
                 <p className="font-medium">BUT UNFORGETTABLE MOMENTS</p>
                 <p className="font-medium">STAY IN PEOPLE'S MINDS.</p>
               </div>
