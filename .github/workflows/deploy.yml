@@ -19,29 +19,36 @@ jobs:
           DO_SERVER_IP: ${{ secrets.DO_SERVER_IP }}
           DO_USER: ${{ secrets.DO_USER }}
         run: |
+          # Create the SSH directory
           mkdir -p ~/.ssh
-          echo "$SSH_KEY" | tr -d '\r' > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
+          
+          # Add the private SSH key
+          echo "$SSH_KEY" | tr -d '\r' > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          
+          # Add the server to known_hosts to prevent manual confirmation
           ssh-keyscan -H "$DO_SERVER_IP" >> ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
 
       - name: Deploy to DigitalOcean
         env:
           DO_SERVER_IP: ${{ secrets.DO_SERVER_IP }}
           DO_USER: ${{ secrets.DO_USER }}
         run: |
-          ssh -i ~/.ssh/id_rsa $DO_USER@$DO_SERVER_IP << 'EOF'
+          # Connect to the server and execute deployment steps
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 $DO_USER@$DO_SERVER_IP << 'EOF'
             # Navigate to your project directory
             cd /root/komma
-
+            
             # Pull the latest changes
             git pull origin main
-
+            
             # Install dependencies (if applicable)
             npm install
-
+            
             # Build the project (if applicable)
             npm run build
-
+            
             # Restart your application (for example, using PM2)
             pm2 restart next-app || pm2 start npm --name "next-app" -- start
           EOF
