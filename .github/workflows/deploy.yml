@@ -29,6 +29,17 @@ jobs:
           # Add the server to known_hosts to prevent manual confirmation
           ssh-keyscan -H "$DO_SERVER_IP" >> ~/.ssh/known_hosts
           chmod 644 ~/.ssh/known_hosts
+          
+          # Validate SSH key setup
+          cat ~/.ssh/id_ed25519 | grep "BEGIN OPENSSH PRIVATE KEY" || exit 1
+
+      - name: Test SSH Connection
+        env:
+          DO_SERVER_IP: ${{ secrets.DO_SERVER_IP }}
+          DO_USER: ${{ secrets.DO_USER }}
+        run: |
+          # Test the SSH connection
+          ssh -v -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 $DO_USER@$DO_SERVER_IP exit
 
       - name: Deploy to DigitalOcean
         env:
@@ -36,19 +47,19 @@ jobs:
           DO_USER: ${{ secrets.DO_USER }}
         run: |
           # Connect to the server and execute deployment steps
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 $DO_USER@$DO_SERVER_IP << 'EOF'
+          ssh -v -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 $DO_USER@$DO_SERVER_IP << 'EOF'
             # Navigate to your project directory
-            cd /root/komma
+            cd /root/komma || { echo "Directory not found"; exit 1; }
             
             # Pull the latest changes
-            git pull origin main
+            git pull origin main || { echo "Git pull failed"; exit 1; }
             
             # Install dependencies (if applicable)
-            npm install
+            npm install || { echo "NPM install failed"; exit 1; }
             
             # Build the project (if applicable)
-            npm run build
+            npm run build || { echo "Build failed"; exit 1; }
             
             # Restart your application (for example, using PM2)
-            pm2 restart next-app || pm2 start npm --name "next-app" -- start
+            pm2 restart next-app || pm2 start npm --name "next-app" -- start || { echo "PM2 restart/start failed"; exit 1; }
           EOF
